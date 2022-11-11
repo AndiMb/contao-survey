@@ -13,6 +13,7 @@ use Contao\BackendUser;
 use Contao\Database;
 use Contao\Input;
 use Doctrine\DBAL\Platforms\MySQLPlatform;
+use Contao\DC_Table;
 
 $found = (\strlen(Input::get('id'))) ? \Hschottm\SurveyBundle\SurveyResultModel::findByPid(Input::get('id')) : null;
  $hasData = (null != $found && 0 < $found->count()) ? true : false;
@@ -23,7 +24,7 @@ $found = (\strlen(Input::get('id'))) ? \Hschottm\SurveyBundle\SurveyResultModel:
 $GLOBALS['TL_DCA']['tl_survey'] = [
     // Config
     'config' => [
-        'dataContainer' => 'Table',
+        'dataContainer' => DC_Table::class,
         'ctable' => ['tl_survey_page', 'tl_survey_participant', 'tl_survey_result', 'tl_survey_pin_tan'],
         'switchToEdit' => true,
         'enableVersioning' => true,
