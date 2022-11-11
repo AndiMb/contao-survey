@@ -12,7 +12,7 @@ use Contao\Backend;
 use Contao\BackendUser;
 use Contao\Database;
 use Contao\Input;
-use Doctrine\DBAL\Platforms\MySqlPlatform;
+use Doctrine\DBAL\Platforms\MySQLPlatform;
 
 $found = (\strlen(Input::get('id'))) ? \Hschottm\SurveyBundle\SurveyResultModel::findByPid(Input::get('id')) : null;
  $hasData = (null != $found && 0 < $found->count()) ? true : false;
@@ -282,7 +282,7 @@ $GLOBALS['TL_DCA']['tl_survey'] = [
             ],
             'sql' => [
                 'type' => 'blob',
-                'length' => MySqlPlatform::LENGTH_LIMIT_BLOB,
+                'length' => MySQLPlatform::LENGTH_LIMIT_BLOB,
                 'notnull' => false,
             ],
         ],
